@@ -4,5 +4,5 @@
   "main": "./worker.js",
   "compatibility_date": "2026-09-04",
   "assets": { "directory": "./" , "binding": "ASSETS"},
-  "d1_databases": [{"binding":"DB","database_name":"sr-plastic-db","database_id":"PASTE_DATABASE_ID_HERE"}]
+  "d1_databases": [{"binding":"DB","database_name":"sr-plastic-db","database_id":"e2652998-6f7e-4222-ab74-109e02e87903"}]
 }
