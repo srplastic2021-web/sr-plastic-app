@@ -2,7 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sr-plastic",
   "main": "./worker.js",
-  "compatibility_date": "2026-09-04",
+  "compatibility_date": "2026-01-01",
   "assets": { "directory": "./" , "binding": "ASSETS"},
   "d1_databases": [{"binding":"DB","database_name":"sr-plastic-db","database_id":"e2652998-6f7e-4222-ab74-109e02e87903"}]
 }
