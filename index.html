@@ -54,7 +54,7 @@ footer a{color:#fff}
 .close{border:0;background:#eef3f7;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}
 .cart-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
 .qty{display:flex;gap:8px;align-items:center}
-.qty button{border:1px solid var(--line);background:#fff;border-radius:7px;width:30px;height:30px;cursor:pointer}
+.qty button{border:1px solid var(--line);background:#fff;border-radius:7px;width:34px;height:34px;cursor:pointer}.qty input{width:58px;height:34px;border:1px solid var(--line);border-radius:7px;text-align:center;font:inherit;font-weight:800;box-sizing:border-box}
 .total{font-size:22px;font-weight:900;text-align:right;margin:18px 0}
 form{display:grid;gap:10px} textarea{min-height:80px;padding:12px;border:1px solid #cddbe6;border-radius:10px;font:inherit}
 @media(max-width:900px){.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.info,.footer-inner{grid-template-columns:1fr}.navlinks a{display:none}}
@@ -727,11 +727,12 @@ function openCart(){
  document.getElementById('modal').classList.add('open');
  const wrap=document.getElementById('cartItems');
  if(!cart.length){wrap.innerHTML='<p>Your order cart is empty.</p>';document.getElementById('total').textContent='0';return;}
- wrap.innerHTML=cart.map(x=>{const p=PRODUCTS.find(p=>p.id===x.id);return `<div class="cart-row"><div><b>${p.name}</b><br><small>₹${p.rate} each</small></div><div class="qty"><button onclick="change(${x.id},-1)">−</button><b>${x.qty}</b><button onclick="change(${x.id},1)">+</button></div><b>₹${(p.rate*x.qty).toFixed(2)}</b></div>`}).join('');
+ wrap.innerHTML=cart.map(x=>{const p=PRODUCTS.find(p=>p.id===x.id);return `<div class="cart-row"><div><b>${p.name}</b><br><small>₹${p.rate} each</small></div><div class="qty"><button onclick="change(${x.id},-1)">−</button><input type="number" min="1" step="1" inputmode="numeric" value="${x.qty}" aria-label="Quantity" onchange="setQty(${x.id},this.value)"><button onclick="change(${x.id},1)">+</button></div><b>₹${(p.rate*x.qty).toFixed(2)}</b></div>`}).join('');
  document.getElementById('total').textContent=cart.reduce((s,x)=>s+PRODUCTS.find(p=>p.id===x.id).rate*x.qty,0).toFixed(2);
 }
 function closeCart(){document.getElementById('modal').classList.remove('open');}
-function change(id,d){const x=cart.find(x=>x.id===id);x.qty+=d;if(x.qty<=0)cart=cart.filter(x=>x.id!==id);save();openCart();}
+function change(id,d){const x=cart.find(x=>x.id===id);if(!x)return;x.qty+=d;if(x.qty<=0)cart=cart.filter(x=>x.id!==id);save();openCart();}
+function setQty(id,value){const x=cart.find(x=>x.id===id);if(!x)return;let qty=parseInt(value,10);if(!Number.isFinite(qty)||qty<1)qty=1;x.qty=qty;save();openCart();}
 function sendOrder(e){
  e.preventDefault();
  if(!cart.length) return alert('Please add products first.');
