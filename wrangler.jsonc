@@ -1,0 +1,8 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sr-plastic",
+  "main": "./worker.js",
+  "compatibility_date": "2026-09-04",
+  "assets": { "directory": "./" , "binding": "ASSETS"},
+  "d1_databases": [{"binding":"DB","database_name":"sr-plastic-db","database_id":"PASTE_DATABASE_ID_HERE"}]
+}

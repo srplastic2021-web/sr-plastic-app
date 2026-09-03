@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SR Plastic | Premium Plastic Manufacturing Solutions</title>
+<meta name="description" content="SR Plastic product catalogue and wholesale ordering website.">
+<style>
+:root{--blue:#0877bd;--navy:#083b66;--green:#075f45;--ink:#17324d;--muted:#657789;--bg:#f5f8fb;--card:#fff;--line:#dce6ef;--accent:#e51e2a}
+*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;gap:18px;padding:12px 18px}
+.logo{width:56px;height:56px;border-radius:50%;object-fit:contain;background:#fff}
+.brand{font-weight:800;font-size:22px;color:#075f45;line-height:1}
+.brand small{display:block;font-size:10px;color:#526a7c;letter-spacing:2px;margin-top:4px}
+.navlinks{margin-left:auto;display:flex;gap:16px;align-items:center}
+.navlinks a{text-decoration:none;color:var(--navy);font-weight:700}
+.cartbtn{border:0;background:var(--blue);color:#fff;padding:11px 15px;border-radius:10px;font-weight:800;cursor:pointer}
+.hero{background:linear-gradient(135deg,#eaf7f1,#eef7ff);padding:56px 18px}
+.hero-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+.kicker{color:var(--green);font-weight:800;letter-spacing:1px}
+h1{font-size:clamp(38px,6vw,68px);margin:8px 0 14px;color:var(--navy)}
+.hero p{font-size:18px;line-height:1.6;color:#506579;max-width:680px}
+.btn{display:inline-block;text-decoration:none;background:var(--blue);color:#fff;padding:13px 18px;border-radius:10px;font-weight:800;margin-right:8px}
+.btn.alt{background:#fff;color:var(--blue);border:1px solid #b8d6ea}
+.hero-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:12px;box-shadow:0 14px 35px #163b5d18}
+.hero-card img{width:100%;display:block;border-radius:12px}
+.section{max-width:1200px;margin:auto;padding:42px 18px}
+.section h2{font-size:32px;margin:0 0 8px;color:var(--navy)}
+.sub{color:var(--muted);margin-bottom:22px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+input,select{padding:12px 14px;border:1px solid #cddbe6;border-radius:10px;background:#fff;font-size:15px}
+.search{flex:1;min-width:220px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.card img{width:100%;aspect-ratio:1.25;object-fit:cover;object-position:center}
+.card-body{padding:14px;display:flex;flex-direction:column;gap:7px;flex:1}
+.tag{font-size:11px;font-weight:800;text-transform:uppercase;color:var(--green);letter-spacing:.7px}
+.card h3{font-size:16px;margin:0;min-height:38px}
+.detail{font-size:12px;color:var(--muted);min-height:32px}
+.rate{font-size:20px;font-weight:900;color:var(--accent)}
+.add{margin-top:auto;border:0;background:var(--navy);color:#fff;border-radius:9px;padding:10px;cursor:pointer;font-weight:800}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.info-box{background:#fff;border:1px solid var(--line);padding:20px;border-radius:16px}
+.info-box h3{margin-top:0;color:var(--navy)}
+footer{background:#072b47;color:#fff;padding:35px 18px}
+.footer-inner{max-width:1200px;margin:auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:28px}
+footer a{color:#fff}
+.note{background:#fff7e8;border:1px solid #f2d08b;padding:14px;border-radius:12px;margin:20px 0;color:#6d531d}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:30;padding:20px}
+.modal.open{display:flex;align-items:flex-end;justify-content:center}
+.modalbox{background:#fff;width:min(720px,100%);max-height:90vh;overflow:auto;border-radius:18px;padding:22px}
+.modal-head{display:flex;justify-content:space-between;align-items:center}
+.close{border:0;background:#eef3f7;border-radius:50%;width:38px;height:38px;font-size:22px;cursor:pointer}
+.cart-row{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;gap:8px;align-items:center}
+.qty button{border:1px solid var(--line);background:#fff;border-radius:7px;width:30px;height:30px;cursor:pointer}
+.total{font-size:22px;font-weight:900;text-align:right;margin:18px 0}
+form{display:grid;gap:10px} textarea{min-height:80px;padding:12px;border:1px solid #cddbe6;border-radius:10px;font:inherit}
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}.info,.footer-inner{grid-template-columns:1fr}.navlinks a{display:none}}
+@media(max-width:520px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card h3{font-size:14px}.card-body{padding:11px}.hero{padding:35px 14px}.section{padding:32px 12px}}
+</style>
+
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#111111">
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('service-worker.js'));
+}
+</script>
+
+</head>
+<body>
+<header>
+  <div class="nav">
+    <img class="logo" src="assets/sr-plastic-logo.jpg" alt="SR Plastic logo">
+    <div class="brand">SR PLASTIC<small>PREMIUM PLASTIC MANUFACTURING</small></div>
+    <nav class="navlinks"><a href="#products">Products</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+    <button class="cartbtn" onclick="openCart()">Cart (<span id="cartCount">0</span>)</button>
+  </div>
+</header>
+
+<section class="hero">
+ <div class="hero-inner">
+  <div>
+   <div class="kicker">PROUDLY MADE IN INDIA</div>
+   <h1>Quality you can trust.</h1>
+   <p>Explore the SR Plastic catalogue of household plastic products, racks, baskets, tubs, stools, planters and more. Built for wholesale customers with competitive pricing.</p>
+   <a class="btn" href="#products">View Products</a>
+   <a class="btn alt" href="#contact">Contact SR Plastic</a>
+  </div>
+  <div class="hero-card"><img src="assets/catalog-page-2.jpg" alt="SR Plastic company profile"></div>
+ </div>
+</section>
+
+<section class="section" id="products">
+ <h2>Product Catalogue</h2>
+ <div class="sub">Rates and packaging details are taken from the SR Plastic catalogue dated 10/08/2026.</div>
+ <div class="note"><b>Wholesale order policy:</b> The catalogue states a minimum order value of ₹1,00,000. Please confirm availability, colour and dispatch details with SR Plastic before ordering.</div>
+ <div class="toolbar">
+   <input class="search" id="search" placeholder="Search products..." oninput="render()">
+   <select id="cat" onchange="render()"><option value="">All categories</option></select>
+ </div>
+ <div class="grid" id="grid"></div>
+</section>
+
+<section class="section" id="about">
+ <h2>About SR Plastic</h2>
+ <div class="info">
+  <div class="info-box"><h3>Premium Quality</h3><p>SR Plastic presents itself as a plastic manufacturing and supply business focused on quality products and value.</p></div>
+  <div class="info-box"><h3>Trusted Supplier</h3><p>The catalogue describes SR Plastic as an experienced supplier and includes product, packaging and ordering information.</p></div>
+  <div class="info-box"><h3>Made in India</h3><p>SR Plastic's catalogue carries “Proudly Made in India” branding.</p></div>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <h2>Contact SR Plastic</h2>
+ <div class="info">
+  <div class="info-box"><h3>Phone</h3><p><a href="tel:+919732917774">+91 97329 17774</a><br><a href="tel:+916294583690">+91 62945 83690</a></p></div>
+  <div class="info-box"><h3>Email</h3><p><a href="mailto:srplastic2021@gmail.com">srplastic2021@gmail.com</a></p></div>
+  <div class="info-box"><h3>Address</h3><p>Talai, P.O. Jarur,<br>P.S. Raghunathganj,<br>Murshidabad, West Bengal – 742235</p></div>
+ </div>
+</section>
+
+<footer>
+ <div class="footer-inner">
+  <div><h2>SR PLASTIC</h2><p>Premium plastic manufacturing solutions.</p></div>
+  <div><b>Catalogue</b><p>36-page product catalogue<br>Wholesale-focused ordering</p></div>
+  <div><b>Quick Contact</b><p><a href="tel:+919732917774">+91 97329 17774</a><br><a href="mailto:srplastic2021@gmail.com">srplastic2021@gmail.com</a></p></div>
+ </div>
+</footer>
+
+<div class="modal" id="modal">
+ <div class="modalbox">
+  <div class="modal-head"><h2>Order Cart</h2><button class="close" onclick="closeCart()">×</button></div>
+  <div id="cartItems"></div>
+  <div class="total">Total: ₹<span id="total">0</span></div>
+  <form onsubmit="sendOrder(event)">
+   <input id="name" required placeholder="Customer / Company Name">
+   <input id="phone" required placeholder="Mobile Number">
+   <input id="address" required placeholder="Delivery Address">
+   <textarea id="message" placeholder="Additional requirement (colour, quantity, dispatch etc.)"></textarea>
+   <button class="cartbtn" type="submit">Send Order on WhatsApp</button>
+  </form>
+  <p style="font-size:12px;color:#68798a">Order button opens WhatsApp with your selected products. The catalogue states a ₹1,00,000 minimum order value.</p>
+ </div>
+</div>
+
+<script>
+const SEED_PRODUCTS = [
+  {
+    "id": 1,
+    "category": "Drum",
+    "name": "2ND 30 LTR DRUM",
+    "detail": "30 LTR",
+    "rate": 50,
+    "page": 4,
+    "image": "assets/product-1.jpg"
+  },
+  {
+    "id": 2,
+    "category": "Drum",
+    "name": "BLACK 2ND 30 LTR DRUM",
+    "detail": "30 LTR",
+    "rate": 55,
+    "page": 4,
+    "image": "assets/product-2.jpg"
+  },
+  {
+    "id": 3,
+    "category": "Bucket/Balti",
+    "name": "12 LTR BALTI",
+    "detail": "12 LTR • Packaging 25 Pcs BDL",
+    "rate": 20,
+    "page": 5,
+    "image": "assets/product-3.jpg"
+  },
+  {
+    "id": 4,
+    "category": "Bucket/Balti",
+    "name": "2ND 13 LTR MAMA BALTI",
+    "detail": "13 LTR • Packaging 25 Pcs BDL",
+    "rate": 27,
+    "page": 5,
+    "image": "assets/product-4.jpg"
+  },
+  {
+    "id": 5,
+    "category": "Bucket/Balti",
+    "name": "D/C-25 LTR BALTI",
+    "detail": "25 LTR • Packaging 25 Pcs BDL",
+    "rate": 85,
+    "page": 6,
+    "image": "assets/product-5.jpg"
+  },
+  {
+    "id": 6,
+    "category": "Bucket/Balti",
+    "name": "13 LTR MAMA DIBBA",
+    "detail": "13 LTR",
+    "rate": 23,
+    "page": 6,
+    "image": "assets/product-6.jpg"
+  },
+  {
+    "id": 7,
+    "category": "Bucket/Balti",
+    "name": "D/C-13 LTR MAMA BALTI",
+    "detail": "13 LTR • Packaging 25 Pcs BDL",
+    "rate": 60,
+    "page": 7,
+    "image": "assets/product-7.jpg"
+  },
+  {
+    "id": 8,
+    "category": "Basket",
+    "name": "D/C-KITCHEN BASKET",
+    "detail": "L-20” • W-17”",
+    "rate": 56,
+    "page": 8,
+    "image": "assets/product-8.jpg"
+  },
+  {
+    "id": 9,
+    "category": "Basket",
+    "name": "A/C-KITCHEN BASKET",
+    "detail": "L-20” • W-17”",
+    "rate": 54,
+    "page": 8,
+    "image": "assets/product-9.jpg"
+  },
+  {
+    "id": 10,
+    "category": "Basket",
+    "name": "A/C-SHOPPING BASKET",
+    "detail": "H-6” • L-10” • Packaging 288 Pcs",
+    "rate": 32,
+    "page": 9,
+    "image": "assets/product-10.jpg"
+  },
+  {
+    "id": 11,
+    "category": "Basket",
+    "name": "D/C-SHOPPING BASKET",
+    "detail": "H-6” • L-10” • Packaging 288 Pcs",
+    "rate": 33,
+    "page": 9,
+    "image": "assets/product-11.jpg"
+  },
+  {
+    "id": 12,
+    "category": "Basket",
+    "name": "D/C-1ST TOXIC BASKET",
+    "detail": "H-3” • L-11” • W-8” • Packaging 300 Pcs",
+    "rate": 15,
+    "page": 10,
+    "image": "assets/product-12.jpg"
+  },
+  {
+    "id": 13,
+    "category": "Storage",
+    "name": "PEN-STAND/KALOM-DANI",
+    "detail": "Packaging 20 DZN",
+    "rate": 32,
+    "page": 11,
+    "image": "assets/product-13.jpg"
+  },
+  {
+    "id": 14,
+    "category": "Rack",
+    "name": "A/C-2ND MEDIUM 4G RACK",
+    "detail": "Packaging 60 Pcs",
+    "rate": 58,
+    "page": 12,
+    "image": "assets/product-14.jpg"
+  },
+  {
+    "id": 15,
+    "category": "Rack",
+    "name": "D/C-1ST MEDIUM 4G RACK",
+    "detail": "Packaging 60 Pcs",
+    "rate": 110,
+    "page": 12,
+    "image": "assets/product-15.jpg"
+  },
+  {
+    "id": 16,
+    "category": "Rack",
+    "name": "D/C-2ND MEDIUM 4G RACK",
+    "detail": "Packaging 60 Pcs",
+    "rate": 60,
+    "page": 13,
+    "image": "assets/product-16.jpg"
+  },
+  {
+    "id": 17,
+    "category": "Rack",
+    "name": "2ND RIFAAH RACK",
+    "detail": "Packaging 60 Pcs",
+    "rate": 52,
+    "page": 13,
+    "image": "assets/product-17.jpg"
+  },
+  {
+    "id": 18,
+    "category": "Rack",
+    "name": "D/C-1ST DIL RACK",
+    "detail": "Packaging 60 Pcs",
+    "rate": 87,
+    "page": 14,
+    "image": "assets/product-18.jpg"
+  },
+  {
+    "id": 19,
+    "category": "Rack",
+    "name": "A/C-1ST DIL RACK",
+    "detail": "Packaging 60 Pcs",
+    "rate": 86,
+    "page": 14,
+    "image": "assets/product-19.jpg"
+  },
+  {
+    "id": 20,
+    "category": "Rack",
+    "name": "D/C-1ST RIFAAH RACK",
+    "detail": "Packaging 60 Pcs",
+    "rate": 87,
+    "page": 15,
+    "image": "assets/product-20.jpg"
+  },
+  {
+    "id": 21,
+    "category": "Rack",
+    "name": "A/C-1ST RIFAAH RACK",
+    "detail": "Packaging 60 Pcs",
+    "rate": 75,
+    "page": 15,
+    "image": "assets/product-21.jpg"
+  },
+  {
+    "id": 22,
+    "category": "Kitchen",
+    "name": "ORBIT/RUTI POT",
+    "detail": "Packaging 288 Pcs",
+    "rate": 32,
+    "page": 16,
+    "image": "assets/product-22.jpg"
+  },
+  {
+    "id": 23,
+    "category": "Kitchen",
+    "name": "2200 ML MUG",
+    "detail": "Packaging 72 DZN • Per Darjan",
+    "rate": 150,
+    "page": 16,
+    "image": "assets/product-23.jpg"
+  },
+  {
+    "id": 24,
+    "category": "Tub/Gamla",
+    "name": "SUMO TUB",
+    "detail": "L-21” • H-10”",
+    "rate": 58,
+    "page": 17,
+    "image": "assets/product-24.jpg"
+  },
+  {
+    "id": 25,
+    "category": "Tub/Gamla",
+    "name": "AASHIQUI TUB",
+    "detail": "L-18” • H-9”",
+    "rate": 88,
+    "page": 17,
+    "image": "assets/product-25.jpg"
+  },
+  {
+    "id": 26,
+    "category": "Tub/Gamla",
+    "name": "1ST SAMIYA TUB",
+    "detail": "L-14” • H-6”",
+    "rate": 38,
+    "page": 18,
+    "image": "assets/product-26.jpg"
+  },
+  {
+    "id": 27,
+    "category": "Tub/Gamla",
+    "name": "D/C-1ST ANISHA TUB",
+    "detail": "L-14” • H-4.5”",
+    "rate": 28,
+    "page": 18,
+    "image": "assets/product-27.jpg"
+  },
+  {
+    "id": 28,
+    "category": "Tub/Gamla",
+    "name": "D/C-1ST SAMIMA TUB",
+    "detail": "L-15” • H-6”",
+    "rate": 43,
+    "page": 19,
+    "image": "assets/product-28.jpg"
+  },
+  {
+    "id": 29,
+    "category": "Tub/Gamla",
+    "name": "D/C-1ST MINI SAMIMA",
+    "detail": "L-13” • H-5”",
+    "rate": 25,
+    "page": 19,
+    "image": "assets/product-29.jpg"
+  },
+  {
+    "id": 30,
+    "category": "Tub/Gamla",
+    "name": "PRINTED-1ST MINI BAZIGAR",
+    "detail": "L-15” • H-6.5” • Packaging 100 Pcs",
+    "rate": 36,
+    "page": 20,
+    "image": "assets/product-30.jpg"
+  },
+  {
+    "id": 31,
+    "category": "Tub/Gamla",
+    "name": "D/C-1ST MINI BAZIGAR",
+    "detail": "L-15” • H-6.5” • Packaging 100 Pcs",
+    "rate": 34,
+    "page": 20,
+    "image": "assets/product-31.jpg"
+  },
+  {
+    "id": 32,
+    "category": "Tub/Gamla",
+    "name": "D/C-I PHONE 15 PRO",
+    "detail": "L-20” • H-10”",
+    "rate": 112,
+    "page": 21,
+    "image": "assets/product-32.jpg"
+  },
+  {
+    "id": 33,
+    "category": "Tub/Gamla",
+    "name": "A/C-I PHONE 15 PRO",
+    "detail": "L-20” • H-10”",
+    "rate": 111,
+    "page": 21,
+    "image": "assets/product-33.jpg"
+  },
+  {
+    "id": 34,
+    "category": "Bowl",
+    "name": "D/C-1ST HIPPO BOWL",
+    "detail": "L-9” • H-3.5” • Packaging 600 Pcs",
+    "rate": 16,
+    "page": 22,
+    "image": "assets/product-34.jpg"
+  },
+  {
+    "id": 35,
+    "category": "Bowl",
+    "name": "D/C-2ND MINI SAMIMA",
+    "detail": "L-13” • H-5”",
+    "rate": 13,
+    "page": 22,
+    "image": "assets/product-35.jpg"
+  },
+  {
+    "id": 36,
+    "category": "Stool/Tool",
+    "name": "SHAKTIMAN-PATA",
+    "detail": "Packaging 100 Pcs",
+    "rate": 66,
+    "page": 23,
+    "image": "assets/product-36.jpg"
+  },
+  {
+    "id": 37,
+    "category": "Stool/Tool",
+    "name": "BABY CHAIR",
+    "detail": "Packaging 20 Pcs BDL",
+    "rate": 60,
+    "page": 23,
+    "image": "assets/product-37.jpg"
+  },
+  {
+    "id": 38,
+    "category": "Stool/Tool",
+    "name": "D/C-SMALL SHAKTIMAN PATA",
+    "detail": "Packaging 120 Pcs",
+    "rate": 33,
+    "page": 24,
+    "image": "assets/product-38.jpg"
+  },
+  {
+    "id": 39,
+    "category": "Stool/Tool",
+    "name": "2ND BLACK SMALL SHAKTIMAN PATA",
+    "detail": "Packaging 128 Pcs",
+    "rate": 13,
+    "page": 24,
+    "image": "assets/product-39.jpg"
+  },
+  {
+    "id": 40,
+    "category": "Stool/Tool",
+    "name": "D/C-1ST BAHUBALI-PATA",
+    "detail": "Packaging 96 Pcs",
+    "rate": 63,
+    "page": 25,
+    "image": "assets/product-40.jpg"
+  },
+  {
+    "id": 41,
+    "category": "Stool/Tool",
+    "name": "D/C-1ST PUSHPA-PATA",
+    "detail": "Packaging 100 Pcs",
+    "rate": 55,
+    "page": 25,
+    "image": "assets/product-41.jpg"
+  },
+  {
+    "id": 42,
+    "category": "Stool/Tool",
+    "name": "D/C-1ST TITANIC PATA",
+    "detail": "Packaging 84 Pcs",
+    "rate": 71,
+    "page": 26,
+    "image": "assets/product-42.jpg"
+  },
+  {
+    "id": 43,
+    "category": "Stool/Tool",
+    "name": "A/C-1ST TITANIC PATA",
+    "detail": "Packaging 84 Pcs",
+    "rate": 70,
+    "page": 26,
+    "image": "assets/product-43.jpg"
+  },
+  {
+    "id": 44,
+    "category": "Jhuri",
+    "name": "D/C-CAMPA JHURI",
+    "detail": "Packaging 200 Pcs",
+    "rate": 32,
+    "page": 27,
+    "image": "assets/product-44.jpg"
+  },
+  {
+    "id": 45,
+    "category": "Jhuri",
+    "name": "A/C-1ST KANJHURI",
+    "detail": "",
+    "rate": 21,
+    "page": 28,
+    "image": "assets/product-45.jpg"
+  },
+  {
+    "id": 46,
+    "category": "Jhuri",
+    "name": "D/C-1ST KANJHURI",
+    "detail": "",
+    "rate": 26,
+    "page": 28,
+    "image": "assets/product-46.jpg"
+  },
+  {
+    "id": 47,
+    "category": "Jhuri",
+    "name": "D/C-2ND KANJHURI",
+    "detail": "",
+    "rate": 13,
+    "page": 29,
+    "image": "assets/product-47.jpg"
+  },
+  {
+    "id": 48,
+    "category": "Jhuri",
+    "name": "D/C-1ST FOL JHURI",
+    "detail": "Packaging 250 Pcs",
+    "rate": 31,
+    "page": 29,
+    "image": "assets/product-48.jpg"
+  },
+  {
+    "id": 49,
+    "category": "Jhuri",
+    "name": "D/C-1ST LOVE JHURI",
+    "detail": "Packaging 400 Pcs",
+    "rate": 21,
+    "page": 30,
+    "image": "assets/product-49.jpg"
+  },
+  {
+    "id": 50,
+    "category": "Jhuri",
+    "name": "D/C-2ND LOVE JHURI",
+    "detail": "Packaging 400 Pcs",
+    "rate": 11.5,
+    "page": 30,
+    "image": "assets/product-50.jpg"
+  },
+  {
+    "id": 51,
+    "category": "Jhuri",
+    "name": "D/C-1ST RANI JHURI",
+    "detail": "Packaging 250 Pcs",
+    "rate": 27,
+    "page": 31,
+    "image": "assets/product-51.jpg"
+  },
+  {
+    "id": 52,
+    "category": "Jhuri",
+    "name": "D/C-2ND RANI JHURI",
+    "detail": "Packaging 250 Pcs",
+    "rate": 13,
+    "page": 31,
+    "image": "assets/product-52.jpg"
+  },
+  {
+    "id": 53,
+    "category": "Basket",
+    "name": "D/C-JOLLY BASKET",
+    "detail": "BIG ₹28 • MEDIUM ₹26 • L-13”/12”",
+    "rate": 28,
+    "page": 32,
+    "image": "assets/product-53.jpg"
+  },
+  {
+    "id": 54,
+    "category": "Basket",
+    "name": "A/C-JOLLY BASKET",
+    "detail": "BIG ₹24 • MEDIUM ₹21 • SMALL ₹16 • L-13”/12”/11”",
+    "rate": 24,
+    "page": 32,
+    "image": "assets/product-54.jpg"
+  },
+  {
+    "id": 55,
+    "category": "Jhuri",
+    "name": "1ST-PRINT JHURI",
+    "detail": "L-28” • W-16” • Packaging 300 Pcs",
+    "rate": 32,
+    "page": 33,
+    "image": "assets/product-55.jpg"
+  },
+  {
+    "id": 56,
+    "category": "Bath",
+    "name": "1ST-BABY BATH TUB",
+    "detail": "L-28” • W-16” • Packaging 50 Pcs",
+    "rate": 160,
+    "page": 33,
+    "image": "assets/product-56.jpg"
+  },
+  {
+    "id": 57,
+    "category": "Kitchen",
+    "name": "P.C MASLA BOX-BIG",
+    "detail": "Packaging 144 Pcs",
+    "rate": 29,
+    "page": 34,
+    "image": "assets/product-57.jpg"
+  },
+  {
+    "id": 58,
+    "category": "Kitchen",
+    "name": "F.C MASALA BOX-BIG",
+    "detail": "Packaging 144 Pcs",
+    "rate": 33,
+    "page": 34,
+    "image": "assets/product-58.jpg"
+  },
+  {
+    "id": 59,
+    "category": "Planter",
+    "name": "PLANTER TUB (4-KHURA)",
+    "detail": "03 ₹30 • 02 ₹20 • 01 ₹11 • Packaging 03/150, 02/300, 01/600 Pcs",
+    "rate": 30,
+    "page": 35,
+    "image": "assets/product-59.jpg"
+  },
+  {
+    "id": 60,
+    "category": "Planter",
+    "name": "PLANTER TUB (6-KHURA)",
+    "detail": "03 ₹30 • 02 ₹20 • 01 ₹11 • Packaging 03/250, 02/300, 01/600 Pcs",
+    "rate": 30,
+    "page": 35,
+    "image": "assets/product-60.jpg"
+  }
+];
+let PRODUCTS = [...SEED_PRODUCTS];
+async function loadProducts(){
+  try{
+    const r=await fetch('/api/products',{cache:'no-store'});
+    if(r.ok){ const data=await r.json(); if(Array.isArray(data.products)&&data.products.length) PRODUCTS=data.products; }
+  }catch(e){}
+  const categories=[...new Set(PRODUCTS.map(p=>p.category))].sort();
+  document.getElementById('cat').innerHTML='<option value="">All categories</option>'+categories.map(c=>`<option>${c}</option>`).join('');
+  render();
+}
+let cart = JSON.parse(localStorage.getItem('srplastic_cart') || '[]');
+const categories = [...new Set(PRODUCTS.map(p=>p.category))].sort();
+document.getElementById('cat').innerHTML += categories.map(c=>`<option>${c}</option>`).join('');
+
+function save(){localStorage.setItem('srplastic_cart',JSON.stringify(cart));updateCount();}
+function updateCount(){document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);}
+function add(id){const p=PRODUCTS.find(x=>x.id===id); const x=cart.find(x=>x.id===id); if(x)x.qty++;else cart.push({id,qty:1}); save();}
+function render(){
+ const q=document.getElementById('search').value.toLowerCase();
+ const c=document.getElementById('cat').value;
+ const list=PRODUCTS.filter(p=>(!q || (p.name+' '+p.category+' '+p.detail).toLowerCase().includes(q)) && (!c||p.category===c));
+ document.getElementById('grid').innerHTML=list.map(p=>`
+ <article class="card">
+  <img src="${p.image}" alt="${p.name}" loading="lazy">
+  <div class="card-body">
+   <div class="tag">${p.category}</div>
+   <h3>${p.name}</h3>
+   <div class="detail">${p.detail || 'See catalogue for details'}</div>
+   <div class="rate">₹${p.rate}</div>
+   <button class="add" onclick="add(${p.id})">Add to Order</button>
+  </div>
+ </article>`).join('');
+ updateCount();
+}
+function openCart(){
+ document.getElementById('modal').classList.add('open');
+ const wrap=document.getElementById('cartItems');
+ if(!cart.length){wrap.innerHTML='<p>Your order cart is empty.</p>';document.getElementById('total').textContent='0';return;}
+ wrap.innerHTML=cart.map(x=>{const p=PRODUCTS.find(p=>p.id===x.id);return `<div class="cart-row"><div><b>${p.name}</b><br><small>₹${p.rate} each</small></div><div class="qty"><button onclick="change(${x.id},-1)">−</button><b>${x.qty}</b><button onclick="change(${x.id},1)">+</button></div><b>₹${(p.rate*x.qty).toFixed(2)}</b></div>`}).join('');
+ document.getElementById('total').textContent=cart.reduce((s,x)=>s+PRODUCTS.find(p=>p.id===x.id).rate*x.qty,0).toFixed(2);
+}
+function closeCart(){document.getElementById('modal').classList.remove('open');}
+function change(id,d){const x=cart.find(x=>x.id===id);x.qty+=d;if(x.qty<=0)cart=cart.filter(x=>x.id!==id);save();openCart();}
+function sendOrder(e){
+ e.preventDefault();
+ if(!cart.length) return alert('Please add products first.');
+ const lines=cart.map(x=>{const p=PRODUCTS.find(p=>p.id===x.id);return `${p.name} x ${x.qty} = ₹${(p.rate*x.qty).toFixed(2)}`;}).join('\n');
+ const total=cart.reduce((s,x)=>s+PRODUCTS.find(p=>p.id===x.id).rate*x.qty,0);
+ const text=`SR PLASTIC ORDER REQUEST\n\nCustomer: ${document.getElementById('name').value}\nPhone: ${document.getElementById('phone').value}\nAddress: ${document.getElementById('address').value}\n\nProducts:\n${lines}\n\nCatalogue-rate total: ₹${total.toFixed(2)}\nAdditional requirement: ${document.getElementById('message').value}`;
+ window.open('https://wa.me/919732917774?text='+encodeURIComponent(text),'_blank');
+}
+loadProducts();
+</script>
+</body>
+</html>
