@@ -17,15 +17,15 @@ function logout(){sessionStorage.removeItem('sr_admin_token');location.reload()}
 if(token)show();
 async function load(){let r=await fetch('/api/products',{headers:{Authorization:'Bearer '+token},cache:'no-store'});if(r.status===401)return logout();let d=await r.json();render(d.products||[])}
 async function compressImage(file){
-  if(!file.type.startsWith('image/'))throw new Error('Only image files are allowed.');
-  const maxSide=1400, quality=.78;
-  const bitmap=await createImageBitmap(file); let w=bitmap.width,h=bitmap.height;
-  const scale=Math.min(1,maxSide/Math.max(w,h)); w=Math.max(1,Math.round(w*scale)); h=Math.max(1,Math.round(h*scale));
-  const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.drawImage(bitmap,0,0,w,h);bitmap.close();
-  const blob=await new Promise(res=>c.toBlob(res,'image/jpeg',quality));
-  if(!blob)throw new Error('Could not process image.');
-  const buf=await blob.arrayBuffer();let binary='';const bytes=new Uint8Array(buf);const chunk=0x8000;for(let i=0;i<bytes.length;i+=chunk)binary+=String.fromCharCode(...bytes.subarray(i,i+chunk));
-  return {mime:'image/jpeg',data:btoa(binary)};
+if(!file.type.startsWith('image/'))throw new Error('Only image files are allowed.');
+const maxSide=1400,quality=.78;
+const bitmap=await createImageBitmap(file);let w=bitmap.width,h=bitmap.height;
+const scale=Math.min(1,maxSide/Math.max(w,h));w=Math.max(1,Math.round(w*scale));h=Math.max(1,Math.round(h*scale));
+const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.drawImage(bitmap,0,0,w,h);bitmap.close();
+const blob=await new Promise(res=>c.toBlob(res,'image/jpeg',quality));if(!blob)throw new Error('Could not process image.');
+const buf=await blob.arrayBuffer();let binary='';const bytes=new Uint8Array(buf);const chunk=0x8000;
+for(let i=0;i<bytes.length;i+=chunk)binary+=String.fromCharCode(...bytes.subarray(i,i+chunk));
+return{mime:'image/jpeg',data:btoa(binary)}
 }
 async function upload(file){const b=await compressImage(file);let r=await fetch('/api/upload',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify(b)});let d=await r.json();if(!r.ok)throw new Error(d.error||'Upload failed');return d.url}
 async function uploadFiles(files){const urls=[];for(const f of files)urls.push(await upload(f));return urls}
@@ -41,5 +41,4 @@ async function removeImg(id,i){try{const p=window.PRODS.find(x=>x.id===id);let i
 async function del(id,name){if(!confirm('Delete '+name+' permanently?'))return;let r=await fetch('/api/products',{method:'DELETE',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify({id})});if(r.ok){msg('Product deleted.');await refreshData()}else msg('Delete failed.',false)}
 function showAdd(){$('add').classList.remove('hidden')}function hideAdd(){$('add').classList.add('hidden')}
 async function addProduct(){try{const files=[...($('af').files||[])];if(!$('an').value.trim())return msg('Enter product name.',false);const imgs=files.length?await uploadFiles(files):[];let body={name:$('an').value,category:$('ac').value,rate:Number($('ar').value),detail:$('ad').value,images:imgs,image:imgs[0]||'',stock:$('as').checked};let r=await fetch('/api/products',{method:'POST',headers:{'Content-Type':'application/json',Authorization:'Bearer '+token},body:JSON.stringify(body)});if(!r.ok){let d=await r.json();throw Error(d.error||'Could not add product')}msg('Product added successfully.');hideAdd();['an','ac','ar','ad'].forEach(id=>$(id).value='');$('af').value='';$('aprev').innerHTML='';await refreshData()}catch(e){msg(e.message,false)}}
-async function load(){await refreshData()}
 </script></body></html>
